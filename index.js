@@ -1,7 +1,8 @@
 import Freecurrencyapi from "@everapi/freecurrencyapi-js";
-const freecurrencyapi = new Freecurrencyapi(
-  "fca_live_M8Gq1lPOcFmg6xGXKDiy2q2XzSktDnhWZSdKYlMm"
-);
+import dotenv from "dotenv";
+dotenv.config({ path: "../.env" });
+
+const freecurrencyapi = process.env.FREQUENCY_API_KEY;
 
 export const currencyCoverter = async (fromCurrency, toCurrency, units) => {
   const result = await freecurrencyapi.latest({
